@@ -33,10 +33,10 @@ jobs:
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASSWORD }}
       
-    # - name: Build the Docker image
-    #   run: |
-    #     docker build -t meridaerick/graphql:0.0.1 .
+    - name: Build the Docker image
+      run: |
+        docker build -t meridaerick/graphql:0.0.1 .
 
-    # - name: Push the Docker image
-    #   run: |
-    #     docker push meridaerick/graphql:0.0.1
+    - name: Push the Docker image
+      run: |
+        docker push meridaerick/graphql:0.0.1
