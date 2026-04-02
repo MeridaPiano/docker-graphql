@@ -20,13 +20,10 @@ jobs:
 
     - name: Docker login
       uses: docker/login-action@v4
-      env: 
-        DOCKER_USER: ${{ secrets.DOCKER_USER}}
-        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      run: |
-        echo "Iniciando Login"
-        docker login --username $DOCKER_USER --password-stdin DOCKER_PASSWORD
-        echo "Fin del Login"
+      with: 
+        username: ${{ secrets.DOCKER_USER }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+      
         
 #    - name: Build the Docker image
 #      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
