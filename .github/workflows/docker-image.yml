@@ -34,9 +34,15 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
       
     - name: Build the Docker image
+      env:
+        NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
-        docker build -t meridaerick/graphql:0.0.1 .
+        docker build -t meridaerick/graphql:$NEW_VERSION .
+        docker build -t meridaerick/graphql:latest .
 
     - name: Push the Docker image
+      env:
+        NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
-        docker push meridaerick/graphql:0.0.1
+        docker push meridaerick/graphql:$NEW_VERSION
+        docker push meridaerick/graphql:latest
