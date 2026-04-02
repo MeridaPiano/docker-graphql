@@ -30,4 +30,4 @@ jobs:
 
     - name: Push the Docker image
       run: |
-        docker push meridaerick/graphql:0.0.1 .
+        docker push meridaerick/graphql:0.0.1
